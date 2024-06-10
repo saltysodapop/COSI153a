@@ -4,6 +4,7 @@ import {StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native
 const Item = ({ item }) => (
     <View style={styles.item}>
         <Text>{item}</Text>
+        <Button title='done'></Button>
     </View>
 );
 
