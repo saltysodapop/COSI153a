@@ -1,22 +1,25 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
 
-const Item = ({ item }) => (
+const Item = ({ item, incrChanges }) => (
     <View style={styles.item}>
-        <Text>{item}</Text>
-        <Button title='done'></Button>
+        <Text>{item['count']} {item['title']} {item['date']}</Text>
+        <Button title="Done" onPress={() => {
+              item['completed']=true;
+              incrChanges()}} />
+        <Text>{item['completed']?'done':''}</Text>
     </View>
 );
-
-const ToDo = () => {
-    const [todo, setTodo] = useState('');
-    const [counter, setCounter] = useState(0);
-}
 
 const ToDoList = () => {
     const [todos, setTodos] = useState([]);
     const [todo, setTodo] = useState('');
-    const [counter, setCounter] = useState(0);
+    const [count, setCount] = useState(1);
+    const [changes, setChanges] = useState(0);
+
+    const incrChanges = () => {
+        setChanges(changes+1);
+    }
 
     return (
         <View style={styles.container}>
@@ -28,22 +31,23 @@ const ToDoList = () => {
             <Button
                 title="Add ToDo"
                 onPress={() => {
-                    setTodos([...todos, todo]);
+                    setCount(count+1);
+                    let date = Date();
+                    let todo_item = {count: count, title:todo, date:date, completed:false};
+                    setTodos(todos.concat(todo_item));
                     setTodo('');
-                    setCounter(counter+1)
                 }} />
-            <Text>
-                {todos}
-            </Text>
             <FlatList
-                data={todos}
-                renderItem={({item}) =>  <Item item={item}/> }
-                keyExtractor={item => item}
+                data={todos.filter(item => !item['completed'])}
+                extraData={changes}
+                renderItem={({item}) =>  <Item item={item} incrChanges={incrChanges}/> }
+                keyExtractor={item => item['count']}
              />
 
         </View>
     );
     }
+
 
 const styles = StyleSheet.create({
     container: {
