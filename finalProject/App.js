@@ -3,29 +3,7 @@ import {useState} from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-function HomeScreen({ navigation }) {
-  return (
-    <><View style={{flexDirection: 'row-reverse', justifyContent: 'space-between' }}>
-        <Button style={{ top: 0, right: 0 }}
-        title="Settings"
-        onPress={() => navigation.navigate('Settings')} />
-      </View><View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-evenly' }}>
-      <Text>Welcome :)</Text>
-      <Button
-        title="About"
-        onPress={() => navigation.navigate('About')} />
-    </View><View style={{flexDirection: 'row', justifyContent: 'space-between' }}>
-      <Button style={{ bottom: 0, left: 0 }}
-        title="Tasks"
-        onPress={() => navigation.navigate('Current tasks')} />
-        <Button style={{ bottom: 0, right: 0 }}
-        title="Games"
-        onPress={() => navigation.navigate('Minigames')} />
-      </View></>
-    
-  );
-}
+import { HomeScreen } from './components/HomeScreen';
 
 function AboutScreen() {
   return (
