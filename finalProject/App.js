@@ -4,38 +4,10 @@ import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './components/HomeScreen';
-
-function AboutScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>About page</Text>
-    </View>
-  );
-}
-
-function TasksScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Add a new task</Text>
-    </View>
-  );
-}
-
-function GamesScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Pick a game!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Change settings</Text>
-    </View>
-  );
-}
+import AboutScreen from './components/AboutScreen';
+import TasksScreen from './components/TasksScreen';
+import GamesScreen from './components/GamesScreen';
+import SettingsScreen from './components/SettingsScreen';
 
 const Stack = createNativeStackNavigator();
 
