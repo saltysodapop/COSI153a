@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {useState} from 'react';
-import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from './components/HomeScreen';
@@ -15,11 +13,34 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="Current tasks" component={TasksScreen} />
-        <Stack.Screen name="Minigames" component={GamesScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{headerShown: false}}/>
+        <Stack.Screen 
+          name="About" 
+          component={AboutScreen}
+          options={{
+            headerStyle: {backgroundColor: '#E1F2EB',},
+            headerTintColor: '#483d8b',
+            headerShadowVisible: false,
+          }}/>
+        <Stack.Screen 
+          name="Current tasks" 
+          component={TasksScreen} 
+          options={{headerShown: false}}/>
+        <Stack.Screen 
+          name="Minigames" 
+          component={GamesScreen} 
+          options={{headerShown: false}}/>
+        <Stack.Screen 
+          name="Settings" 
+          component={SettingsScreen} 
+          options={{
+            headerStyle: {backgroundColor: '#E1F2EB',},
+            headerTintColor: '#483d8b',
+            headerShadowVisible: false,
+          }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

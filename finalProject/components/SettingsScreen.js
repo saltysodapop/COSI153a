@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
+import styles from './Styles';
 
 function SettingsScreen() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5fffa' }}>
-        <Text>Change settings</Text>
+      <View style={[styles.container, {flex: 'auto'}]}>
+        <Text style={styles.text}>Change settings such as username, notifications, etc.</Text>
       </View>
     );
   }

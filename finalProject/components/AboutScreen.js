@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
+import styles from './Styles';
 
 function AboutScreen() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5fffa' }}>
-        <Text>About page</Text>
+      <View style={[styles.container, {flex: 'auto'}]}>
+        <Text style={styles.text}>About page</Text>
       </View>
     );
   }
