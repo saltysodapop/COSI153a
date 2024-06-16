@@ -16,6 +16,15 @@ const styles = StyleSheet.create({
       fontFamily: 'monospace',
       color: '#483d8b',
     },
+    wip: {
+      flexDirection: 'row',
+      alignItems: 'center', 
+      padding: 20,
+      marginVertical: 8,
+      backgroundColor: '#DBEAFF', 
+      borderColor:'#483d8b', 
+      borderWidth: 2
+    },
   });
 
   export default styles
