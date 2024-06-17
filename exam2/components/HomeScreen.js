@@ -8,7 +8,7 @@ function HomeScreen() {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Home!</Text>
         <Text>Username: {currentValue['username']}</Text>
-        <Text>Status: {currentValue['admin']}</Text>
+        <Text>Password: </Text>
       </View>
     );
   }
