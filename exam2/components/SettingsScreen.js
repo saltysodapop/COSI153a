@@ -13,7 +13,13 @@ function SettingsScreen() {
                 setCurrentValue({...currentValue, username: text});
             }}
         />
-        <Text>usename:{currentValue['username']}</Text>
+        <Text>username:{currentValue['username']}</Text>
+        <TextInput 
+            placeholder="Enter password"
+            onChangeText={(text) => {
+                setCurrentValue({...currentValue, password: text});
+            }}
+        />
       </View>
     );
   }
