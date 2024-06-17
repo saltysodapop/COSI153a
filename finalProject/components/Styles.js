@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
       borderColor:'#483d8b', 
       borderWidth: 2
     },
+    complete: {
+      flexDirection: 'row',
+      alignItems: 'center', 
+      padding: 20,
+      marginVertical: 8,
+    },
   });
 
   export default styles
