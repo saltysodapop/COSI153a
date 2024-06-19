@@ -12,7 +12,7 @@ function AboutScreen() {
         <Text> </Text>
         <Text style={styles.text}>
           The minigames will be very simple, designed to take only a couple of minutes to play so they don't become distracting.
-          Users are allowed to play one minigame each day as a "freebie," but the games can be unlocked and played again by spending "task tokens.
+          Users are allowed to play one minigame each day as a "freebie," but the games can be unlocked and played again by spending "task tokens."
           Users can earn task tokens by completing or making progress on their current tasks.
           Then, once they've saved enough tokens, users can pick a minigame to play again!
         </Text>
