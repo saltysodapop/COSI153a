@@ -16,13 +16,18 @@ const styles = StyleSheet.create({
       fontFamily: 'monospace',
       color: '#483d8b',
     },
+    input: {
+      height: 40, 
+      borderColor: '#483d8b', 
+      borderWidth: 2 
+    },
     wip: {
       flexDirection: 'row',
       alignItems: 'center', 
       padding: 20,
       marginVertical: 8,
-      backgroundColor: '#DBEAFF', 
-      borderColor:'#483d8b', 
+      backgroundColor: '#dbeaff', 
+      borderColor: '#483d8b', 
       borderWidth: 2
     },
     complete: {
@@ -30,6 +35,13 @@ const styles = StyleSheet.create({
       alignItems: 'center', 
       padding: 20,
       marginVertical: 8,
+      backgroundColor: '#f2f4f7',
+      borderColor: '#454352',
+      borderWidth: 2,
+    },
+    separator: {
+      borderBottomColor: '#483d8b',
+      borderBottomWidth: StyleSheet.hairlineWidth,
     },
   });
 

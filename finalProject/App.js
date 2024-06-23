@@ -7,11 +7,12 @@ import { TasksScreen } from './components/TasksScreen';
 import { GamesScreen } from './components/GamesScreen';
 import { SettingsScreen } from './components/SettingsScreen';
 import ValueProvider from './components/ValueContext';
+import { PuzzleGame } from './components/minigames/PuzzleGame';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
-  const data = {username:'name', taskTokens:5}
+  const data = {username:'name', taskTokens:5, tasks:[]}
 
   return (
     <><ValueProvider value={data}>
@@ -45,6 +46,10 @@ function App() {
               headerTintColor: '#483d8b',
               headerShadowVisible: false,
             }} />
+          <Stack.Screen 
+            name="Puzzle"
+            component={PuzzleGame}
+            options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </ValueProvider></>

@@ -14,8 +14,11 @@ function HomeScreen({ navigation }) {
           title="Settings"
           onPress={() => navigation.navigate('Settings')} />
         </View><View style={[styles.container, { flex: 1, justifyContent: 'space-evenly' }]}>
-        <Text style={[styles.text, {fontSize: 17}]}>Welcome {currentValue.username}!{'\n'}      :)</Text>
-        <Text style={[styles.text, {fontSize: 17}]}> </Text>
+          <View style={styles.container}>
+            <Text style={[styles.text, {fontSize: 17}]}>Welcome {currentValue.username}!</Text>
+            <Text style={[styles.text, {fontSize: 17}]}>:)</Text>
+          </View>
+          <Text style={[styles.text, {fontSize: 17}]}> </Text>
       </View><View style={[styles.container, { flexDirection: 'row', justifyContent: 'space-between'}]}>
         <Button 
           color='#008b8b'

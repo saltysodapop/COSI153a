@@ -5,7 +5,6 @@ import { RenderTask } from './RenderTask';
 import {useValue} from './ValueContext';
 
 function TasksScreen({ navigation }) {
-    const [tasks, setTasks] = useState([]);
     const [task, setTask] = useState('');
     const [changes, setChanges] = useState(0);
     const {currentValue, setCurrentValue} = useValue();
@@ -22,7 +21,7 @@ function TasksScreen({ navigation }) {
         </View><View style={[styles.container, { flex: 1, paddingTop: 120 }]}>
         <Text style={styles.text}>Add a new task</Text>
         <TextInput
-          style={{ height: 40, borderColor: '#483d8b', borderWidth: 2 }}
+          style={styles.input}
           onChangeText={text => setTask(text)}
           value={task} />
         <Button
@@ -31,13 +30,13 @@ function TasksScreen({ navigation }) {
           onPress={() => {
             let date = Date();
             let task_item = {title:task, completed:false, date:date};
-            setTasks(tasks.concat(task_item));
+            setCurrentValue({...currentValue, tasks: currentValue.tasks.concat(task_item)});
             setTask('');
           } } />
         <Text> </Text>
-        <Text style={[styles.text, {textDecorationLine: 'underline'}]}>Task List:</Text>
+        <Text style={[styles.text, styles.separator]}>Task List:</Text>
         <FlatList
-                data={tasks}
+                data={currentValue.tasks}
                 extraData={changes}
                 renderItem={({item}) =>  <RenderTask task={item} incrChanges={incrChanges}/> }
                 keyExtractor={item => item['date']} />

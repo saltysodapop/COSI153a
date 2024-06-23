@@ -13,22 +13,39 @@ function GamesScreen({ navigation }) {
           <Text style={styles.text}>  Task tokens: {currentValue.taskTokens}</Text>
         </View><View style={[styles.container, {flex: 1}]}>
           <View style={{ position: 'absolute', top: '30%', right: '20%' }}>
-            <Text style={styles.text}>Pick a minigame!</Text>
+            {currentValue.taskTokens < 5 ? (
+              <Text style={styles.text}>Not enough tokens!</Text>
+            ) : (
+              <Text style={styles.text}>Pick a minigame!</Text>
+            )}
           </View>
           <View style={[styles.box, {backgroundColor: '#2e4666',  top: '25%', left: '15%'}]}>
             <Button
               color='#008b8b'
-              title="game 1" />
+              title="puzzle"
+              disabled={currentValue.taskTokens < 5}
+              onPress={() => {
+                setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
+                navigation.navigate('Puzzle')
+              }} />
           </View>
           <View style={[styles.box, {backgroundColor: '#41618c'}]}>
             <Button
               color='#008b8b'
-              title="game 2" />
+              title="game 2"
+              disabled={currentValue.taskTokens < 5}
+              onPress={() => {
+                setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
+              }} />
           </View>
           <View style={[styles.box, {backgroundColor: '#6591CF', bottom: '25%', right: '15%'}]}>
             <Button
               color='#008b8b'
-              title="game 3" />
+              title="game 3"
+              disabled={currentValue.taskTokens < 5}
+              onPress={() => {
+                setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
+              }} />
           </View>
       </View><View style={[styles.container, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
           <Button 
