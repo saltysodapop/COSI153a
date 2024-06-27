@@ -43,6 +43,23 @@ const styles = StyleSheet.create({
       borderBottomColor: '#483d8b',
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
+    modalView: {
+      margin: 20,
+      backgroundColor: '#f5fffa',
+      borderRadius: 20,
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+      borderColor: '#483d8b',
+      borderWidth: 1.5,
+    },
   });
 
   export default styles
