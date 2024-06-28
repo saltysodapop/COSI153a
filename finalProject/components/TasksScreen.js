@@ -28,7 +28,7 @@ function TasksScreen({ navigation }) {
             setModalVisible(!modalVisible);
           } } >
           <View style= {{alignItems: 'center', justifyContent: 'center', marginTop: 132}}>
-            <View style={styles.modalView}>
+            <View style={styles.modalBox}>
               <Text style={[styles.text, {fontWeight: 'bold'}]}>Add new task:</Text>
               <TextInput
                 style={styles.input}

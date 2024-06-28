@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
       borderBottomColor: '#483d8b',
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    modalView: {
+    modalBox: {
       margin: 20,
       backgroundColor: '#f5fffa',
       borderRadius: 20,

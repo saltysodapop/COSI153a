@@ -1,3 +1,11 @@
+/*
+This implements a value context which allows a component to
+access a globally available JSON object (currentValue) and to
+change it using setCurrentValue. Moreover, the currentValue
+is initiallized with Persistent storage and every call to 
+setCurrentValue stores the new value in local memory.
+
+*/
 import React, { useState, useEffect, useContext, createContext } from "react";
 import regeneratorRuntime from "regenerator-runtime";
 import storage from './Storage';    
@@ -46,7 +54,7 @@ getData(currentValue, setCurrentValue)
                 .then(ret => {
                     // found data goes to then()
                     if (ret==undefined) {
-                      storeData(currentValue);
+                      store_data(currentValue);
                       console.log('storing initial value in memory')
                     } else {
                       console.log('getting data from memory')
