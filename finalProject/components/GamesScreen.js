@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Platform } from 'react-native';
 import styles from './Styles';
 import {useValue} from './ValueContext';
 
@@ -7,7 +7,8 @@ function GamesScreen({ navigation }) {
     const {currentValue, setCurrentValue} = useValue();
 
     return (
-      <><View style={styles.container}>
+      <>{Platform.OS === 'android' ? (<View style = {styles.container}><Text style={{fontSize:16}}></Text></View>) : (<View style={styles.container}/>)}
+        <View style={styles.container}>
           <Text style={{fontSize:6}}> </Text>
         </View><View style={[styles.container, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
           <Text style={styles.text}>  Task tokens: {currentValue.taskTokens}</Text>
@@ -26,26 +27,28 @@ function GamesScreen({ navigation }) {
               disabled={currentValue.taskTokens < 5}
               onPress={() => {
                 setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
-                navigation.navigate('Puzzle')
+                navigation.navigate('PuzzleSetup')
               }} />
           </View>
           <View style={[styles.box, {backgroundColor: '#41618c'}]}>
             <Button
               color='#008b8b'
-              title="game 2"
+              title="wordle"
               disabled={currentValue.taskTokens < 5}
               onPress={() => {
                 setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
+                navigation.navigate('Wordle')
               }} />
           </View>
           <View style={[styles.box, {backgroundColor: '#6591CF', bottom: '25%', right: '15%'}]}>
             <Button
               color='#008b8b'
               title="game 3"
-              disabled={currentValue.taskTokens < 5}
+              disabled
               onPress={() => {
                 setCurrentValue({...currentValue, taskTokens: currentValue['taskTokens']-5})
               }} />
+            <Text style={[styles.text, {color: 'white'}]}> More games coming soon!</Text>
           </View>
       </View><View style={[styles.container, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
           <Button 

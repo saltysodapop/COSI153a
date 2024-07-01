@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, Platform } from 'react-native';
 import styles from './Styles';
 import {useValue} from './ValueContext';
 
@@ -7,7 +7,8 @@ function HomeScreen({ navigation }) {
     const {currentValue} = useValue();
 
     return (
-      <><View style={[styles.container, {flexDirection: 'row', justifyContent: 'space-between'}]}>
+      <>{Platform.OS === 'android' ? (<View style = {styles.container}><Text style={{fontSize:16}}></Text></View>) : (<View style={styles.container}/>)}
+        <View style={[styles.container, {flexDirection: 'row', justifyContent: 'space-between'}]}>
           <Text style={styles.text}>  Task tokens: {currentValue.taskTokens}</Text>
           <Button 
           color='#008b8b'

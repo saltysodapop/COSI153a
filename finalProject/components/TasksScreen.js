@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, TextInput, Button, FlatList, Modal } from 'react-native';
+import { View, Text, TextInput, Button, FlatList, Modal, Platform } from 'react-native';
 import styles from './Styles';
 import { RenderTask } from './RenderTask';
 import {useValue} from './ValueContext';
@@ -15,7 +15,8 @@ function TasksScreen({ navigation }) {
     }
 
     return (
-      <><View style={styles.container}>
+      <>{Platform.OS === 'android' ? (<View style = {styles.container}><Text style={{fontSize:16}}></Text></View>) : (<View style={styles.container}/>)}
+        <View style={styles.container}>
           <Text style={{fontSize:6}}> </Text>
         </View><View style={[styles.container, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
           <Text style={styles.text}>  Task tokens: {currentValue.taskTokens}</Text>

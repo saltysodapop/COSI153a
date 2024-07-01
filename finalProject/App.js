@@ -7,7 +7,9 @@ import { TasksScreen } from './components/TasksScreen';
 import { GamesScreen } from './components/GamesScreen';
 import { SettingsScreen } from './components/SettingsScreen';
 import ValueProvider from './components/ValueContext';
+import { PuzzleSetup } from './components/minigames/PuzzleSetup';
 import { PuzzleGame } from './components/minigames/PuzzleGame';
+import Wordle from './components/minigames/Wordle';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,8 +49,16 @@ function App() {
               headerShadowVisible: false,
             }} />
           <Stack.Screen 
+            name="PuzzleSetup"
+            component={PuzzleSetup}
+            options={{ headerShown: false }} />
+          <Stack.Screen 
             name="Puzzle"
             component={PuzzleGame}
+            options={{ headerShown: false }} />
+          <Stack.Screen 
+            name="Wordle"
+            component={Wordle}
             options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>

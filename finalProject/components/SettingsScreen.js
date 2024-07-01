@@ -8,7 +8,7 @@ import storage from './Storage';
 function SettingsScreen({ navigation }) {
     const [showChangeUsername, setShowChangeUsername] = useState(false);
     const {currentValue, setCurrentValue} = useValue();
-    const debug = false;
+    const debug = true;
 
     const clearAll = async () => {
       try {
@@ -23,7 +23,6 @@ function SettingsScreen({ navigation }) {
 
     return (
       <><View style={[styles.container, { flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', padding: 60 }]}>
-        <Text style={styles.text}>Notifications: On/Off</Text>
         <Text style={styles.text}>User Info:</Text>
         <Text style={styles.text}>    Username: {currentValue.username}</Text>
         {showChangeUsername ? (
@@ -41,12 +40,12 @@ function SettingsScreen({ navigation }) {
           title="change username?"
           onPress={() => setShowChangeUsername(true)} />
         )}
-        <Text style={styles.text}>    Birthday: 00/00</Text>
         {debug ?
+          <><Text style={styles.text}>For debugging only:</Text>
           <Button
             title="Clear"
             color='#008b8b'
-            onPress = {() => {clearAll()}}/> : <Text> </Text>
+            onPress = {() => {clearAll()}}/></> : <Text> </Text>
         }
       </View><View style={[styles.container, { padding: 100 }]}>
         <Button

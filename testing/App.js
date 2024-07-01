@@ -1,3 +1,3 @@
-import App from './components/Recipes';
+import App from './components/Wordle';
 
 export default App;

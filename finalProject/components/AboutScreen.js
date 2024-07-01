@@ -4,9 +4,9 @@ import styles from './Styles';
 
 function AboutScreen() {
     return (
-      <View style={[styles.container, {flex: 'auto', justifyContent: 'flex-start', padding: 60}]}>
+      <View style={[styles.container, {flex: 1, justifyContent: 'flex-start', padding: 60}]}>
         <Text style={styles.text}>
-          This is a time management app that allows users to set tasks to do and goals to work toward.
+          BitTasker is a time management app that allows users to set tasks to do and goals to work toward.
           It features a few fun minigames to reward users for making progress on their tasks and motivate them to keep doing their best!
         </Text>
         <Text> </Text>
@@ -18,7 +18,7 @@ function AboutScreen() {
         </Text>
         <Text> </Text>
         <Text> </Text>
-        <Text style={styles.text}>Make everyday tasks a little bit more fun with this app! :)</Text>
+        <Text style={styles.text}>Make everyday tasks a little bit more fun with BitTasker! :)</Text>
       </View>
     );
   }
