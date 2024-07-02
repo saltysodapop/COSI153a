@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, TextInput, StyleSheet, Button, Platform } from 'react-native';
+import { SafeAreaView, View, Text, TextInput, StyleSheet, Button, Platform, Modal } from 'react-native';
 import words5 from '../assets/words5a';
 import {pick_random_word,analyze_guess} from '../lib/words';
 import GuessList from './GuessList';
@@ -12,6 +12,8 @@ const App = ({ navigation }) => {
   const [guess, setGuess] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [guesses, setGuesses] = useState([]);
+  const [winModalVisible, setWinModalVisible] = useState(false);
+  const [loseModalVisible, setLoseModalVisible] = useState(false);
 
 const validateGuess = (guess) =>{
        return guess.length ==5;
@@ -45,26 +47,68 @@ const validateGuess = (guess) =>{
                   {/* jake - you win alert */}
                   if (guess.toLowerCase() == word) {
                       setGuesses(guesses.concat(guess));
-                      
-                      alert('You guessed the word ' + word + ' in ' + (guessNum+1)+ ((guessNum==0)?' guess':' guesses'));
+                      setWinModalVisible(true);
                       setGuessNum(guessNum+1);
                       setGameOver(true);
-                  
                   } else if (!words5.includes(guess.toLowerCase()) ){ /* check that the guess is in the array wards5*/
                       alert('Your guess is not a valid word. Please try again.');
-                  }else if (guessNum == 5 && guess != word) {
-                    alert('You have already submitted the maximum number of guesses. The word was '+word);
+                  } else if (guessNum == 5 && guess != word) {
+                    setLoseModalVisible(true);
                     setGameOver(true);
                     setGuesses(guesses.concat(guess));
-                    
                   } else {
                     setGuesses(guesses.concat(guess));
                     setGuessNum(guessNum+1);
                   }
                   setGuess(''); {/* jake - clear the guess box after each guess */}
                   }}/>
-    </>
+          
+      </>
       }
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={winModalVisible}
+          onRequestClose={() => {
+            setWinModalVisible(!winModalVisible);
+          } } >
+          <View style= {{alignItems: 'center', justifyContent: 'center', marginTop: 132}}>
+            <View style={[styles.modalBox, {borderWidth: 2.5}]}>
+              <Text style={[styles.text, {fontWeight: 'bold'}]}>Great job!</Text>
+              <Text style={styles.text}>You guessed the word "{word}" in {(guessNum+1)} {(guessNum==0)?'guess':'guesses'}!</Text>
+              <Text style={{fontSize: 8}}> </Text>
+              <Button
+                color='#008b8b'
+                title="back"
+                onPress={() => {
+                  setWinModalVisible(!winModalVisible)
+                  navigation.navigate('Minigames')
+                } } />
+            </View>
+          </View>
+        </Modal>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={loseModalVisible}
+          onRequestClose={() => {
+            setLoseModalVisible(!loseModalVisible);
+          } } >
+          <View style= {{alignItems: 'center', justifyContent: 'center', marginTop: 132}}>
+            <View style={[styles.modalBox, {borderWidth: 2.5}]}>
+              <Text style={styles.text}>The word was "{word}."</Text>
+              <Text style={styles.text}>Better luck next time!</Text>
+              <Text style={{fontSize: 8}}> </Text>
+              <Button
+                color='#008b8b'
+                title="back"
+                 onPress={() => {
+                  setLoseModalVisible(!loseModalVisible)
+                  navigation.navigate('Minigames')
+                } } />
+            </View>
+          </View>
+        </Modal>
         <GuessList word={word} guesses={guesses} />
     </View></>
   );

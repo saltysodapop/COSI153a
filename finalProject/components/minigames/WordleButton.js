@@ -10,10 +10,10 @@ export default function Button({ title,  onPress }) {
               margin:20,}]}
       >
         <Pressable
-          style={[styles.button, { backgroundColor: "#fff" }]}
+          style={styles.button}
           onPress={onPress} 
         >
-          <Text style={stylesA.text}>{title}</Text>
+          <Text style={[stylesA.text, {color: 'black'}]}>{title}</Text>
         </Pressable>
     </View>
     );
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     padding: 3,
     borderWidth:10,
     borderColor:'black',
+    backgroundColor: '#dbeaff',
   },
   button: {
     borderRadius: 10,
@@ -38,13 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  buttonIcon: {
-    paddingRight: 8,
-  },
-  buttonLabel: {
-    color: '#fff',
-    fontSize: 16,
+    backgroundColor: '#dbeaff',
   },
 });
 
